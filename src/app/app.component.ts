@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   employeeForm: FormGroup;
   employee: Employee;
+  emple: Employee;
   employees: Observable<Employee[]>;
   submitted = false;
   isupdated = false;
@@ -102,14 +103,14 @@ employeeupdateform = new FormGroup({
 
  //update employee
  updateEmp(updstu) {
-  this.employee = new Employee();
-  this.employee.id = this.EmployeeId.value;
-  this.employee.firstName = this.FirstName.value;
-  this.employee.lastName = this.LastName.value;
-  this.employee.designation = this.Designation.value;
-  this.employee.salary = this.Salary.value;
+  this.emple = new Employee();
+  this.emple.id = this.EmployeeId.value;
+  this.emple.firstName = this.FirstName.value;
+  this.emple.lastName = this.LastName.value;
+  this.emple.designation = this.Designation.value;
+  this.emple.salary = this.Salary.value;
   
-   this.empService.updateEmployee(this.employee.id,this.employee).subscribe(data=>{
+   this.empService.updateEmployee(this.emple.id,this.emple).subscribe(data=>{
     this.isupdated =true;
     this.getEmployeeList();
    });
